@@ -41,7 +41,7 @@ $$
 
 ## Implementation<br>구현
 
-* Please implement the following functions in the `my_code_here.py` file.<br>다음 함수를 `my_code_here.py` 파일에 구현하시오.
+* Please implement the following functions in the `exercise.py` file.<br>다음 함수를 `exercise.py` 파일에 구현하시오.
 
 | function<br>함수 | return type<br>반환 형 | unit<br>단위 | return value<br>반환값 |
 |:--------:|:-----------:|:-----------:|:-----------:|
@@ -50,7 +50,7 @@ $$
 | `t_discharge(A, h0, a, g)` | `float` | sec | Exact solution of the drain time.<br>배수 시간의 엄밀해. |
 | `exact_h(t_start, t_end, h0, a, A, g)` | `dict` | - | Exact solution of the differential equation above. (see below) <br> 위 미분방정식의 엄밀해. (아래 참고) |
 
-* Write all your code within the function(s) in `my_code_here.py`, but feel free to add comments outside the functions to explain your work.<br>`my_code_here.py` 의 모든 코드는 함수 안에 작성되어야 함. 예외로 설명을 위한 주석문은 함수 밖에 자유로이 추가할 수 있음.
+* Write all your code within the function(s) in `exercise.py`, but feel free to add comments outside the functions to explain your work.<br>`exercise.py` 의 모든 코드는 함수 안에 작성되어야 함. 예외로 설명을 위한 주석문은 함수 밖에 자유로이 추가할 수 있음.
 * The functions will take the following arguments.<br>해당 함수들은 아래와 같은 매개변수를 받아들일것임.
 
 | argument<br>매개변수 | type<br>형 | unit<br>단위 | description<br>설명 |
@@ -76,14 +76,14 @@ $$
 
 | File or Folder<br>파일 또는 폴더 | Type<br>형식 | Purpose<br>목적 | Description<br>설명 | Permission<br>권한 |
 |-----------------------|----------|---------------------------|-------------------------------------------------------------------------------------|:-------------:|
-| `my_code_here.py`    | Python   | Main Script<br>주 파일 | Write your code to solve the assignment problem in this file.<br>이 파일에 과제 코드를 작성.  | Modify<br>수정 |
+| `exercise.py`    | Python   | Main Script<br>주 파일 | Write your code to solve the assignment problem in this file.<br>이 파일에 과제 코드를 작성.  | Modify<br>수정 |
 | `sample.py`           | Python   | Example Usage<br>사용 예 | This file demonstrates how to use the assignment code.<br>과제 코드 사용 예. | Read-Only<br>읽기 전용 |
 | `.github/workflows/` | YAML     | Continuous Integration/Continuous Deployment Configuration<br>연속 통합/배포 설정 | Defines automated workflows for testing and deployment.<br>시험 배포 자동화 절차 설정. | Read-Only<br>읽기 전용 |
 | `tests/`              | Python   | Test Cases<br>시험 파일 | Tests to check the correctness of your code.<br>코드가 맞는지 시험. | Read-Only<br>읽기 전용 |
 
 ### Allowed Modules<br>허용 모듈 목록
 
-* In the `my_code_here.py` file, please `import` these modules only.<br>`my_code_here.py` 파일에서는 아래 모듈만 `import` 바랍니다.
+* In the `exercise.py` file, please `import` these modules only.<br>`exercise.py` 파일에서는 아래 모듈만 `import` 바랍니다.
 
 | module<br>모듈 | description<br>설명 |
 |:--------:|:-----------:|

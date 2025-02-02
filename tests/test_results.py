@@ -15,11 +15,11 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.absolute()))
 # Import the module containing the functions to be tested.
 # 테스트할 함수를 포함하는 모듈을 불러옵니다.
 try:
-    import exercise_code as mch
+    import exercise as mch
 except ImportError as e:
     pytest.fail(
-        f"Error importing 'my_code_here': {e}"
-        f"'my_code_here'를 불러오는 중 오류가 발생했습니다. {e}"
+        f"Error importing 'exercise': {e}"
+        f"'exercise'를 불러오는 중 오류가 발생했습니다. {e}"
     )
 
 
