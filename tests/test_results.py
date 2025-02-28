@@ -1,7 +1,7 @@
+import os
 import pathlib
 import random
 import sys
-
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,13 +9,13 @@ import numpy.testing as nt
 import pytest
 
 
-sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.absolute()))
+sys.path.insert(0, os.getenv('STUDENT_CODE_FOLDER', str(pathlib.Path(__file__).parent.parent.absolute())))
 
 
 # Import the module containing the functions to be tested.
 # 테스트할 함수를 포함하는 모듈을 불러옵니다.
 try:
-    import exercise as mch
+    import exercise
 except ImportError as e:
     pytest.fail(
         f"Error importing 'exercise': {e}"
@@ -77,7 +77,7 @@ def t_sec(t_discharge_sec:float) -> float:
 
 
 def test_dh_dt(t_sec:float, h_m:float, a_m2:float, q_m3ps:float, A_m2:float, g_mpsps:float):
-    result = mch.dh_dt(t_sec, h_m, a_m2, A_m2, g_mpsps)
+    result = exercise.dh_dt(t_sec, h_m, a_m2, A_m2, g_mpsps)
 
     msg = (
         f"input arguments: A={A_m2}, h0_m={h_m}, a={a_m2}, g={g_mpsps}\n"
@@ -93,7 +93,7 @@ def test_dh_dt(t_sec:float, h_m:float, a_m2:float, q_m3ps:float, A_m2:float, g_m
 
 
 def test_t_discharge(h0_m:float, a_m2:float, A_m2:float, g_mpsps:float, t_discharge_sec:float):
-    result = mch.t_discharge(A_m2, h0_m, a_m2, g_mpsps)
+    result = exercise.t_discharge(A_m2, h0_m, a_m2, g_mpsps)
 
     msg = (
         f"input arguments: A={A_m2}, h0_m={h0_m}, a={a_m2}, g={g_mpsps}\n"
@@ -128,7 +128,7 @@ def test_exact_h(
         t_start_sec:float, t_end_sec:float,
         h0_m:float, a_m2:float, A_m2:float, g_mpsps:float,
         t_discharge_sec:float):
-    result = mch.exact_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
+    result = exercise.exact_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
 
     msg_arg = (
         f"input arguments: t_start = {t_start_sec}, t_end = {t_end_sec}, h0 = {h0_m}, a={a_m2}, A={A_m2}, g={g_mpsps}\n"
@@ -210,7 +210,7 @@ def test_numerical_h(
         t_start_sec:float, t_end_sec:float,
         h0_m:float, a_m2:float, A_m2:float, g_mpsps:float,
         t_discharge_sec:float):
-    result = mch.numerical_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
+    result = exercise.numerical_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
 
     msg_arg = (
         f"input arguments: t_start = {t_start_sec}, t_end = {t_end_sec}, h0 = {h0_m}, a={a_m2}, A={A_m2}, g={g_mpsps}\n"
@@ -290,9 +290,9 @@ def plot_results(
         numerical:dict=None, exact:dict=None,):
 
     if exact is None:
-        exact = mch.exact_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
+        exact = exercise.exact_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
     if numerical is None:
-        numerical = mch.numerical_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
+        numerical = exercise.numerical_h(t_start_sec, t_end_sec, h0_m, a_m2, A_m2, g_mpsps)
 
     fig, ax = plt.subplots()
     ax.plot(exact['t_array'], exact['h_array'], 'o-', label='Exact (result)')
